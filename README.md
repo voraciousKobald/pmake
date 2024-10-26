@@ -1,2 +1,3 @@
 # pmake
-generates &amp; configures a project inside working directory
+THIS UTILITY IS MAINLY MEANT TO BE USED IN COMBINATION WITH GNU EMACS.
+
