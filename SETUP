@@ -11,7 +11,7 @@ esac
 
 set +e
 
-aliasline="alias bls='bash $DIR/pmake'"
+aliasline="alias pmake='bash $DIR/pmake'"
 isinfile=$(grep "$aliasline" $HOME/.bashrc)
 
 if [ -z "$isinfile" ]; then
