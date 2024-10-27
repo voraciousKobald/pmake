@@ -78,4 +78,4 @@ Since i intend to utilize pmake with emacs, i plan in a later update to write up
 S4-FINALIZE
 
 cd $dir; gtags -v
-emacsclient -n -a "" -c -e "(progn (dired-other-frame default-directory) (ggtags-mode) (ggtags-create-tags default-directory))"
+emacsclient -n -a "" -c -e "(progn (dired-other-frame default-directory) (ggtags-mode) (ggtags-create-tags default-directory))" # I had to do this stupid hack where i create a new frame with the -c flag in order for this to work, i dont know how to do this a different way.
