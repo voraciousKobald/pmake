@@ -50,7 +50,7 @@ done
 while true; do
 	read -p "Library path:	" -r lib
 	cd $lib
-if ls -1 | grep -E ".*/.(so|a)"; then
+if ls -1 | grep -E "\.(so|a)$"; then
 	cp -r $lib $dir/lib
 	read -p "Add another? (Y/N)	" yn
 	case $yn in
