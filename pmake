@@ -74,9 +74,17 @@ This last step is using gtags (https://www.gnu.org/software/global/)
 what it does is summarized best by what they say on their page
 "You can locate various objects, such as functions, macros, structs, classes, in your source files and move there easily. It is useful for hacking on a large project which contains many sub-directories, many #ifdef and many main() functions." and this is a functionality independent of any editor and its able to treat definitions and references.
 
-The emacsclient command below runs the needed function to create the tags inside the directory.
-I have further plans to create a .dir-locals.el (https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html) file to point flycheck to the includes and libraries inside the project folder, but i have not fully mastered this.
+You may need to tweak the include path inside the .dir-locals.el
 S4-FINALIZE
+
+indir="$dir"/include
 
 cd $dir; gtags -v
 emacsclient -n -a "" -c -e "(progn (dired-other-frame default-directory) (ggtags-mode) (ggtags-create-tags default-directory))" # I had to do this stupid hack where i create a new frame with the -c flag in order for this to work, i dont know how to do this a different way.
+echo "check .dir-locals.el to make sure it properly leads to your include path, this is important to make sure that flycheck is properly set up."
+printf '
+;;; Directory Local Variables            -*- no-byte-compile: t -*-
+;;; For more information see (info "(emacs) Directory Variables")
+
+(setq flycheck-gcc-include-path "'$indir'")
+' > .dir-locals.el
