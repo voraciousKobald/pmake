@@ -88,3 +88,5 @@ printf '
 
 (setq flycheck-gcc-include-path "'$indir'")
 ' > .dir-locals.el
+
+printf '## '$project'' > README.md
