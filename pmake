@@ -85,14 +85,13 @@ cd $dir; gtags -v
 # FOR EMACS USERS, DELETE THIS BLOCK IF YOU ARENT AN EMACS USER.
 indir="$dir"/include
 
-emacsclient -n -a "" -c -e "(progn (dired-other-frame default-directory) (ggtags-mode) (ggtags-create-tags default-directory))" # I had to do this stupid hack where i create a new frame with the -c flag in order for this to work, i dont know how to do this a different way.
-
-echo "check .dir-locals.el to make sure it properly leads to your include path, this is important to make sure that flycheck is properly set up."
-
 printf '
 ;;; Directory Local Variables            -*- no-byte-compile: t -*-
 ;;; For more information see (info "(emacs) Directory Variables")
 
 (setq flycheck-gcc-include-path "'$indir'")
 ' > .dir-locals.el
+
+emacsclient -n -a "" -c -e "(progn (dired-other-frame default-directory) (ggtags-mode) (ggtags-create-tags default-directory))" # I had to do this stupid hack where i create a new frame with the -c flag in order for this to work, i dont know how to do this a different way.
+echo "check .dir-locals.el to make sure it properly leads to your include path, this is important to make sure that flycheck is properly set up."
 # FOR EMACS USERS, DELETE THIS BLOCK IF YOU ARENT AN EMACS USER.
