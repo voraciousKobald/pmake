@@ -1,6 +1,7 @@
 #!/bin/bash
-set -e
 
+set -e
+UTIL=pmake
 DIR=$PWD
 read -p "THIS WILL ADD AN ALIAS TO ~/.bashrc DO YOU CONSENT? (Y/N)       " consent
 case "$consent" in
@@ -11,12 +12,12 @@ esac
 
 set +e
 
-aliasline="alias pmake='bash $DIR/pmake'"
+aliasline="alias "$UTIL"='bash $DIR/$UTIL'"
 isinfile=$(grep "$aliasline" $HOME/.bashrc)
 
 if [ -z "$isinfile" ]; then
     echo $aliasline >> $HOME/.bashrc
-	echo -e "SETUP COMPLETE, ALIAS \"pmake\" HAS BEEN APPENDED TO ~/.bashrc, RUN \"exec bash\" OR RESTART TERMINAL"
+	echo -e "SETUP COMPLETE, ALIAS \"$UTIL\" HAS BEEN APPENDED TO ~/.bashrc, RUN \"exec bash\" OR RESTART TERMINAL"
 	exit 0
 else
 	echo "ALIAS ALREADY IN BASHRC, EXITING"
