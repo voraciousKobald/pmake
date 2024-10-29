@@ -77,7 +77,10 @@ This last step is using gtags (https://www.gnu.org/software/global/)
 what it does is summarized best by what they say on their page
 "You can locate various objects, such as functions, macros, structs, classes, in your source files and move there easily. It is useful for hacking on a large project which contains many sub-directories, many #ifdef and many main() functions." and this is a functionality independent of any editor and its able to treat definitions and references.
 
-You may need to tweak the include path inside the .dir-locals.el
+Inside the EMACS section, I defined a variable that combines the dir variable with /include into one string, this is to make the .dir-locals.el file contain the right
+file path. The purpose of the .dir-locals.el is to put flycheck to the includes directory, but not globally, this is to make this change clash with any other projects you have.
+Atleast, that is what is intended.
+You may need to tweak the include path inside the .dir-locals.el because sometimes it is one less directory than where the includes are.
 S4-FINALIZE
 
 cd $dir; gtags -v
