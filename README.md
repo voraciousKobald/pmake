@@ -14,7 +14,7 @@ THIS UTILITY HAS BIAS TOWARDS GCC, HOWEVER IT SHOULD BE EASY TO ALTER THE SOURCE
 
 - GNU C COMPILER (You can swap it for any C compiler in the source code by changing the CC variable in the printf function in S1. Alternatively, you could go for a different language entirely since gtags supports several other languages.)
 
-- GNU EMACS (I havent really designed this script for other editors, but you are free to hack it for your own use case. Remove the emacsclient line and replace it with whatever command to launch editor you use and find an equivalent to ggtags)
+- GNU EMACS (I labeled the block of code in the source code that you can delete if you prefer to hack this script to have a setup for your own editor.)
 
 ## EMACS packages needed/reccomended:
 - NEED [ggtags](https://melpa.org/#/ggtags "MELPA REPO")
