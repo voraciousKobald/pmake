@@ -10,7 +10,7 @@ The dir variable is then defined as the working directory variable concatenated 
 S1-DIRECTORY_GENERATION
 
 read -p "Name project:		" project
-dir="$PWD"/"''$project''"
+dir="$PWD"/"'$project'"
 
 
 : <<'S2-SKELETON'
