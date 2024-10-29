@@ -2,6 +2,8 @@
 
 # THIS PROGRAM HAS 4 SECTIONS, EACH LABELED WITH AN S FOLLOWED WITH A NUMBER, FOLLOWED WITH A DASH AND ITS LABEL NAME.
 
+set -e
+
 : <<'S1-DIRECTORY_GENERATION'
 In this section the first command asks you to name the project, then it stores it in the project variable.
 The dir variable is then defined as the working directory variable concatenated with / and the project variable
@@ -89,6 +91,8 @@ cd $dir; gtags -v
 indir="$dir"/include
 
 printf '
+
+set -e
 ;;; Directory Local Variables            -*- no-byte-compile: t -*-
 ;;; For more information see (info "(emacs) Directory Variables")
 
